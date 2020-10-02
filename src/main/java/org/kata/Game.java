@@ -4,9 +4,16 @@ import java.util.Map;
 
 public class Game {
 
-  private int playerOneScore;
+  private Player playerOne;
 
-  private Map<Integer, String> playerScoresText = Map.of(
+  private Player playerTwo;
+
+  public Game(Player playerOne, Player playerTwo) {
+    this.playerOne = playerOne;
+    this.playerTwo = playerTwo;
+  }
+
+  private final Map<Integer, String> playerScoresTranslation = Map.of(
       0, "love",
       1, "fifteen",
       2, "thirty",
@@ -14,10 +21,7 @@ public class Game {
   );
 
   public String getScore() {
-    return String.format("%s - love", playerScoresText.get(playerOneScore));
-  }
-
-  public void playerOneScores() {
-    playerOneScore++;
+    return String.format("%s - %s", playerScoresTranslation.get(playerOne.getScore()),
+        playerScoresTranslation.get(playerTwo.getScore()));
   }
 }

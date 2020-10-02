@@ -21,6 +21,9 @@ public class Game {
   );
 
   public String getScore() {
+    if (playerOne.inDeuceWithPlayer(playerTwo)) {
+      return "deuce";
+    }
     return String.format("%s - %s", playerScoresTranslation.get(playerOne.getScore()),
         playerScoresTranslation.get(playerTwo.getScore()));
   }

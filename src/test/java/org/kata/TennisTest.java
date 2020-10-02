@@ -47,6 +47,15 @@ class TennisTest {
         assertThat(score, is("love - fifteen"));
     }
 
+    @Test
+    void shouldReturnDeuce() {
+        final Game game = createGameWithScore(3, 3);
+        String score = game.getScore();
+
+        assertThat(score, is("deuce"));
+    }
+
+
     private Game createGameWithScore(final int playerOneScore, final int playerTwoScore) {
         final Player playerOne = new Player("one");
         final Player playerTwo = new Player("two");

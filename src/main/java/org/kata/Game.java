@@ -9,7 +9,8 @@ public class Game {
   private Map<Integer, String> playerScoresText = Map.of(
       0, "love",
       1, "fifteen",
-      2, "thirty"
+      2, "thirty",
+      3, "forty"
   );
 
   public String getScore() {

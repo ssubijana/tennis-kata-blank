@@ -33,4 +33,15 @@ class TennisTest {
 
         assertThat(score, is("thirty - love"));
     }
+
+    @Test
+    void whenPlayerOneWinsThreePointShouldBeFifteenLove() {
+        final Game game = new Game();
+        game.playerOneScores();
+        game.playerOneScores();
+        game.playerOneScores();
+        String score = game.getScore();
+
+        assertThat(score, is("forty - love"));
+    }
 }

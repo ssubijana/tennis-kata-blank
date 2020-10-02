@@ -21,10 +21,15 @@ public class Game {
   );
 
   public String getScore() {
-    if (playerOne.inDeuceWithPlayer(playerTwo)) {
+    if (isDeuce()) {
       return "deuce";
     }
     return String.format("%s - %s", playerScoresTranslation.get(playerOne.getScore()),
         playerScoresTranslation.get(playerTwo.getScore()));
+  }
+
+  public boolean isDeuce() {
+    final boolean isForty = playerOne.getScore() >= 3;
+    return isForty && playerOne.getScore() == playerTwo.getScore();
   }
 }

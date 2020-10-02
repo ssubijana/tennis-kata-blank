@@ -22,8 +22,4 @@ public class Player {
     score++;
   }
 
-  public boolean inDeuceWithPlayer(final Player otherPlayer) {
-    final boolean isForty = this.score >= 3;
-    return isForty && this.score == otherPlayer.getScore();
-  }
 }

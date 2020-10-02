@@ -49,10 +49,15 @@ class TennisTest {
 
     @Test
     void shouldReturnDeuce() {
-        final Game game = createGameWithScore(3, 3);
-        String score = game.getScore();
+        final Game game1 = createGameWithScore(3, 3);
+        final Game game2 = createGameWithScore(5, 5);
+        String score1 = game1.getScore();
+        String score2 = game2.getScore();
 
-        assertThat(score, is("deuce"));
+        assertThat(score1, is("deuce"));
+        assertThat(score2, is("deuce"));
+
+
     }
 
 

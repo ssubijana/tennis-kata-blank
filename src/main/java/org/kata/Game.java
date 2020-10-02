@@ -29,6 +29,12 @@ public class Game {
     if (playerWithAdvantageOpt.isPresent()) {
       return String.format("%s advantage", playerWithAdvantageOpt.get().getName());
     }
+
+    final Optional<Player> winner = hasWinner();
+    if (winner.isPresent()) {
+      return String.format("%s wins", winner.get().getName());
+    }
+
     return String.format("%s - %s", playerScoresTranslation.get(playerOne.getScore()),
         playerScoresTranslation.get(playerTwo.getScore()));
   }
@@ -47,4 +53,15 @@ public class Game {
     }
     return Optional.empty();
   }
+
+  public Optional<Player> hasWinner() {
+    if (playerOne.getScore() >= 4 && playerOne.getScore() -2 == playerTwo.getScore()) {
+      return Optional.of(playerOne);
+    }
+    if (playerTwo.getScore() >= 4 && playerTwo.getScore() -2 == playerOne.getScore()) {
+      return Optional.of(playerTwo);
+    }
+    return Optional.empty();
+  }
+
 }

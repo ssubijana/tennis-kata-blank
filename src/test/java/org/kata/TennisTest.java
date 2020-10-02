@@ -82,6 +82,29 @@ class TennisTest {
         assertThat(score2, is("two advantage"));
     }
 
+    @Test
+    void shouldReturnPlayerOneWins() {
+        final Game game1 = createGameWithScore(5, 3);
+        final Game game2 = createGameWithScore(7, 5);
+
+        final String score1 = game1.getScore();
+        final String score2 = game2.getScore();
+
+        assertThat(score1, is("one wins"));
+        assertThat(score2, is("one wins"));
+    }
+
+    @Test
+    void shouldReturnPlayerTwoWins() {
+        final Game game1 = createGameWithScore(3, 5);
+        final Game game2 = createGameWithScore(5, 7);
+
+        final String score1 = game1.getScore();
+        final String score2 = game2.getScore();
+
+        assertThat(score1, is("two wins"));
+        assertThat(score2, is("two wins"));
+    }
 
     private Game createGameWithScore(final int playerOneScore, final int playerTwoScore) {
         final Player playerOne = new Player("one");

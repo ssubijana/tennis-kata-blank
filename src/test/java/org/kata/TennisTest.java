@@ -1,16 +1,36 @@
 package org.kata;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 
 class TennisTest {
+
     @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
+    void whenGameStartsScoreShouldBeLoveLove() {
+        final Game game = new Game();
+        String score = game.getScore();
+        assertThat(score, is("love - love"));
+    }
+
+    @Test
+    void whenPlayerOneWinsOnePointShouldBeFifteenLove() {
+        final Game game = new Game();
+        game.playerOneScores();
+        String score = game.getScore();
+
+        assertThat(score, is("fifteen - love"));
+    }
+
+    @Test
+    void whenPlayerOneWinsTwoPointShouldBeFifteenLove() {
+        final Game game = new Game();
+        game.playerOneScores();
+        game.playerOneScores();
+        String score = game.getScore();
+
+        assertThat(score, is("thirty - love"));
     }
 }

@@ -25,6 +25,7 @@ public class Game {
     if (isDeuce()) {
       return "deuce";
     }
+
     final Optional<Player> playerWithAdvantageOpt = hasPlayerAdvantage();
     if (playerWithAdvantageOpt.isPresent()) {
       return String.format("%s advantage", playerWithAdvantageOpt.get().getName());
@@ -35,6 +36,10 @@ public class Game {
       return String.format("%s wins", winner.get().getName());
     }
 
+    return getRegularScore();
+  }
+
+  private String getRegularScore() {
     return String.format("%s - %s", playerScoresTranslation.get(playerOne.getScore()),
         playerScoresTranslation.get(playerTwo.getScore()));
   }
